@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lya | Mar, Sol e Flores</title>
+    <meta name="description" content="Um cantinho feito para a Lya.">
+    <meta name="theme-color" content="#bfeaf1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Lya">
+    <meta property="og:title" content="Lya | Mar, Sol e Flores">
+    <meta property="og:description" content="Um cantinho feito para a Lya.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='28' fill='%23bfeaf1'/%3E%3Ccircle cx='60' cy='60' r='18' fill='%236f4a2f'/%3E%3Cg fill='%23f6c64b'%3E%3Cellipse cx='60' cy='25' rx='12' ry='24'/%3E%3Cellipse cx='60' cy='95' rx='12' ry='24'/%3E%3Cellipse cx='25' cy='60' rx='24' ry='12'/%3E%3Cellipse cx='95' cy='60' rx='24' ry='12'/%3E%3Cellipse cx='35' cy='35' rx='12' ry='24' transform='rotate(-45 35 35)'/%3E%3Cellipse cx='85' cy='35' rx='12' ry='24' transform='rotate(45 85 35)'/%3E%3Cellipse cx='35' cy='85' rx='12' ry='24' transform='rotate(45 35 85)'/%3E%3Cellipse cx='85' cy='85' rx='12' ry='24' transform='rotate(-45 85 85)'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="preload" as="image" href="assets/hero-beach-1400.webp"
+        imagesrcset="assets/hero-beach-900.webp 900w, assets/hero-beach-1400.webp 1400w, assets/hero-beach.webp 1536w"
+        imagesizes="100vw" type="image/webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://open.spotify.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="texture" aria-hidden="true"></div>
+    <div class="shoreline" aria-hidden="true"></div>
+    <div class="sun-wash" aria-hidden="true"></div>
+    <div class="ambient-layer" id="ambientLayer" aria-hidden="true"></div>
+
+    <section class="intro" id="intro" aria-label="Entrada">
+        <img src="assets/hero-beach-1400.webp"
+            srcset="assets/hero-beach-900.webp 900w, assets/hero-beach-1400.webp 1400w, assets/hero-beach.webp 1536w"
+            sizes="100vw" width="1536" height="1024"
+            alt="Ilustração vintage de praia em azul e amarelo." class="intro-art" fetchpriority="high"
+            decoding="async">
+        <div class="intro-copy">
+            <span class="kicker">para</span>
+            <h1>Lya</h1>
+            <div class="intro-stamp" aria-hidden="true">
+                <i class="ph ph-flower"></i>
+                <span>mar</span>
+            </div>
+            <button class="enter-button" id="enterButton" type="button">
+                <i class="ph ph-sun-horizon" aria-hidden="true"></i>
+                <span>Entrar</span>
+            </button>
+        </div>
+    </section>
+
+    <main class="app is-locked" id="app" data-view="home">
+        <nav class="side-nav" aria-label="Navegação principal">
+            <span class="nav-thread" aria-hidden="true"></span>
+            <button class="nav-item active" type="button" data-view="home" aria-label="Início">
+                <i class="ph ph-sun-horizon" aria-hidden="true"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" type="button" data-view="playlist" aria-label="Músicas">
+                <i class="ph ph-music-notes" aria-hidden="true"></i>
+                <span>Músicas</span>
+            </button>
+            <button class="nav-item" type="button" data-view="mural" aria-label="Mural">
+                <i class="ph ph-flower-lotus" aria-hidden="true"></i>
+                <span>Mural</span>
+            </button>
+            <button class="nav-item" type="button" data-view="momentos" aria-label="Momentos">
+                <i class="ph ph-book-open-text" aria-hidden="true"></i>
+                <span>Momentos</span>
+            </button>
+            <button class="nav-item" type="button" data-view="cartas" aria-label="Cartas">
+                <i class="ph ph-envelope-open" aria-hidden="true"></i>
+                <span>Cartas</span>
+            </button>
+        </nav>
+
+        <section class="stage" aria-live="polite">
+            <header class="topbar">
+                <div>
+                    <span class="kicker">Lya</span>
+                    <p class="topbar-subtitle">feito por Det, pra Lya</p>
+                </div>
+                <div class="timer" aria-label="Contador">
+                    <span class="timer-label">tempo</span>
+                    <strong id="clock">00d 00h 00m</strong>
+                </div>
+            </header>
+
+            <section class="view active" id="home" data-view-panel>
+                <div class="hero">
+                    <img src="assets/hero-lya-beach-1400.webp"
+                        srcset="assets/hero-lya-beach-900.webp 900w, assets/hero-lya-beach-1400.webp 1400w, assets/hero-lya-beach.webp 1536w"
+                        sizes="(max-width: 620px) 94vw, (max-width: 980px) 92vw, 1120px" width="1536"
+                        height="1024" alt="Praia vintage com girassóis, lírios, livro, make e doces."
+                        class="hero-image" decoding="async">
+                    <span class="photo-corner top-left" aria-hidden="true"></span>
+                    <span class="photo-corner top-right" aria-hidden="true"></span>
+                    <span class="photo-corner bottom-left" aria-hidden="true"></span>
+                    <span class="photo-corner bottom-right" aria-hidden="true"></span>
+                    <div class="hero-overlay">
+                        <span class="kicker">feito para</span>
+                        <h2>Lya</h2>
+                        <div class="blank-note" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="hero-stamp" aria-hidden="true">
+                        <i class="ph ph-flower"></i>
+                        <span>praia</span>
+                    </div>
+                </div>
+
+                <div class="interest-grid" aria-label="Coisas que combinam com a Lya">
+                    <article class="interest-item">
+                        <i class="ph ph-waves" aria-hidden="true"></i>
+                        <span>Mar</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-flower" aria-hidden="true"></i>
+                        <span>Girassol</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-flower-lotus" aria-hidden="true"></i>
+                        <span>Lírio</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-sparkle" aria-hidden="true"></i>
+                        <span>Make</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-music-notes" aria-hidden="true"></i>
+                        <span>Música</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-book-open" aria-hidden="true"></i>
+                        <span>Leitura</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-heart" aria-hidden="true"></i>
+                        <span>Afeto</span>
+                    </article>
+                    <article class="interest-item">
+                        <i class="ph ph-cookie" aria-hidden="true"></i>
+                        <span>Doces</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="view" id="playlist" data-view-panel>
+                <div class="section-head">
+                    <span class="kicker">playlist</span>
+                    <h2>Músicas</h2>
+                </div>
+
+                <div class="music-scene">
+                    <span class="paper-clip" aria-hidden="true"></span>
+                    <div class="music-main">
+                        <div class="record-wrap" aria-hidden="true">
+                            <div class="record">
+                                <span></span>
+                            </div>
+                            <div class="needle"></div>
+                        </div>
+
+                        <div class="music-copy">
+                            <span class="kicker">trilha de fundo</span>
+                            <h3 id="musicTitle">Can't Help Falling in Love</h3>
+                            <p id="musicArtist">Elvis Presley</p>
+
+                            <div class="music-lines" id="musicDisplay" aria-label="Trecho destacado"></div>
+
+                            <div class="site-player" aria-label="Player do site">
+                                <button class="site-play-button" id="musicPlayButton" type="button"
+                                    aria-pressed="false">
+                                    <i class="ph ph-play" aria-hidden="true"></i>
+                                    <span>Tocar</span>
+                                </button>
+                                <span class="player-status" id="musicStatus">trilha de fundo</span>
+                            </div>
+
+                            <audio id="backgroundAudio" preload="metadata" loop></audio>
+
+                            <div class="spotify-embed-card">
+                                <iframe class="spotify-frame" id="spotifyFrame" title="Player do Spotify"
+                                    loading="lazy"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    src="https://open.spotify.com/embed/track/44AyOl4qVkzS48vBsbNXaC?utm_source=generator">
+                                </iframe>
+                            </div>
+
+                            <a class="spotify-soft-link" id="spotifyLink" href="#" target="_blank" rel="noopener">
+                                <i class="ph ph-spotify-logo" aria-hidden="true"></i>
+                                <span>Abrir no Spotify</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="track-strip" id="trackStrip" aria-label="Escolher música"></div>
+
+                    <div class="music-note-card">
+                        <i class="ph ph-sparkle" aria-hidden="true"></i>
+                        <span>aperta o play e deixa baixinho</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="view" id="mural" data-view-panel>
+                <div class="section-head">
+                    <span class="kicker">mural</span>
+                    <h2>Polaroids</h2>
+                </div>
+
+                <div class="polaroid-grid">
+                    <article class="polaroid">
+                        <span class="tape" aria-hidden="true"></span>
+                        <img src="assets/mural-mar-540.webp" width="540" height="648"
+                            alt="Ilustração de mar em estilo vintage." loading="lazy" decoding="async">
+                        <span>Mar</span>
+                    </article>
+                    <article class="polaroid">
+                        <span class="tape" aria-hidden="true"></span>
+                        <img src="assets/mural-flores-540.webp" width="540" height="648"
+                            alt="Ilustração de girassóis e lírios." loading="lazy" decoding="async">
+                        <span>Flores</span>
+                    </article>
+                    <article class="polaroid">
+                        <span class="tape" aria-hidden="true"></span>
+                        <img src="assets/mural-livro-540.webp" width="540" height="648"
+                            alt="Ilustração de livro aberto na praia." loading="lazy" decoding="async">
+                        <span>Leitura</span>
+                    </article>
+                    <article class="polaroid">
+                        <span class="tape" aria-hidden="true"></span>
+                        <img src="assets/mural-doce-make-540.webp" width="540" height="648"
+                            alt="Ilustração de doce e maquiagem." loading="lazy" decoding="async">
+                        <span>Doce & make</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="view" id="momentos" data-view-panel>
+                <div class="section-head">
+                    <span class="kicker">linha do tempo</span>
+                    <h2>Momentos</h2>
+                </div>
+                <div class="timeline" id="timeline"></div>
+            </section>
+
+            <section class="view" id="cartas" data-view-panel>
+                <div class="section-head">
+                    <span class="kicker">cartas</span>
+                    <h2>Envelope</h2>
+                </div>
+
+                <button class="letter-card" type="button" id="openLetter">
+                    <span class="seal" aria-hidden="true"></span>
+                    <i class="ph ph-envelope-simple-open" aria-hidden="true"></i>
+                    <span>Carta</span>
+                    <small>abrir</small>
+                </button>
+            </section>
+        </section>
+        <aside class="credit-tag" aria-label="Créditos">
+            feito por <strong>Flávio (Det)</strong>
+        </aside>
+    </main>
+
+    <div class="modal" id="letterModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <section class="letter-paper" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+            <button class="close-button" type="button" data-close-modal aria-label="Fechar carta">
+                <i class="ph ph-x" aria-hidden="true"></i>
+            </button>
+            <span class="kicker">para Lya</span>
+            <h2 id="letterTitle">Carta</h2>
+            <div class="letter-body" id="letterBody"></div>
+        </section>
+    </div>
+</body>
+
+</html>
